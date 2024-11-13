@@ -53,4 +53,4 @@ Contacto
 #Si tienes preguntas o sugerencias, no dudes en contactarme:
 
     Nombre: Loren Sofía Sucre
-    Email: surelorenf@gmail.com.com
+    Email: sofiasucref@gmail.com
