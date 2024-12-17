@@ -130,7 +130,7 @@ nav ul, li, a {
 .product-card h3 {
     color: #ffff;
     margin: 0;
-    text-align: column;
+    text-align: center;
 }
 
 .product-card button {
