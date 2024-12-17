@@ -22,6 +22,22 @@ const productos = [
 function generarProductos() {
     const contenedor  = document.queSelector('.elementos.container');
     contenedor.innerHTML = '';
+
+    productos.forEach(producto => {
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('product-card');
+        tarjeta.innerHTML = `
+            <img src="${img/Winkler.jpg.imagen}" alt="${Winkler.nombre}">
+            <h3>${Winkler.nombre}</h3>
+            <p>${Libro de protesis total.descripcion}</p>
+            <button class="ver-detalles">Ver detalles</button>
+        `;
+        contenedor.appendChild(tarjeta);
+    });
+}
+
+// Llamar a la función para generar los productos al cargar la página
+document.addEventListener('DOMContentLoaded', generarProductos);
     
 
 
