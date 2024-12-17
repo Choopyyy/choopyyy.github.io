@@ -19,7 +19,7 @@ const productos = [
     { nombre: 'Sobre el Autor', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg' },
 ];
 
-function generarProdcutos() {
+function generarProductos() {
     const contenedor  = document.queSelector('.elementos.container');
     contenedor.innerHTML = '';
     
