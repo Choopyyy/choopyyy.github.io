@@ -12,11 +12,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
 
 //Array de productos
 const productos = [
-    { nombre: 'Biomecanica en Protesis Parcial Removible', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg' },
-    { nombre: 'Biomecanica en Protesis Parcial Fija', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/componentes-ppf.gif' },
-    { nombre: 'Clasificación de Kennedy', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/clasificacion de kennedy.png' },
-    { nombre: 'Guia de ejercicios de Protesis Parcial Removible', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/guia de ejercicios.jpg' },
-    { nombre: 'Sobre el Autor', descripción: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/AUTORA.jpg' },
+    { nombre: 'Biomecanica en Protesis Parcial Removible', descripcion: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg' },
+    { nombre: 'Biomecanica en Protesis Parcial Fija', descripcion: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/componentes-ppf.gif' },
+    { nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/clasificacion de kennedy.png' },
+    { nombre: 'Guia de ejercicios de Protesis Parcial Removible', descripcion: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/guia de ejercicios.jpg' },
+    { nombre: 'Sobre el Autor', descripcion: 'El documento desarrolla los principios biomecanicos para el diseño funcional de una protesis parcial removible, de acuerdo a las caracteristicas anatomicas y funcionales del caso.', imagen: 'img/AUTORA.jpg' },
 ];
 
 function generarProductos() {
