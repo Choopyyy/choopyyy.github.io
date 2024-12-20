@@ -56,7 +56,12 @@ nav ul, li, a {
 
 /* Estilo general de la seccion de contenidos*/
 
-.elementor-widget-container {
+.avatar img {
+    width: 100%;
+    max-width: 100px;
+}
+
+.elementos container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -74,7 +79,7 @@ nav ul, li, a {
     display: inline-block;
 }
 
-.elementor-widget-container img {
+.elementos container img {
     height: auto;
     max-width: 100%;
     border: none;
