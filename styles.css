@@ -199,9 +199,9 @@ nav ul, li, a {
     margin: 0;
 }
 
-/* Estilo general de la seccion de contacto */
+/* Estilo para los botones generales */
 
-button:hover { 
+button, #carrito button, #contact button[type="submit"] {
     font-family: inherit;
     font-size: 100%;
     background-color: #e9c46a;
@@ -211,6 +211,14 @@ button:hover {
     border-radius: 4px;
     cursor: pointer;
 }
+
+#carrito button, #contact button[type="submit"] {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+
+/* Estilo general de la seccion de contacto */
+
 textarea {
     display: block;
   
