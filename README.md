@@ -14,9 +14,11 @@ Características
 
     HTML5: Estructura del contenido.
     CSS3: Estilos y diseño visual.
-    JavaScript: (Si se incluye en una futura versión).
+    JavaScript: Archivo JavaScript para las funcionalidades interactivas como validación de formularios y desplazamiento suave.
     Google Fonts: Tipografía personalizada.
-
+  img/: Carpeta que contiene todas las imágenes utilizadas en el proyecto.
+    Pdf/: Carpeta que contiene los documentos descargables.
+    
 #Instalación
 
 Para ver el proyecto en tu máquina local:
@@ -34,14 +36,6 @@ bash
     cd educacion-rehabilitacion-oral
 
     Abre el archivo index.html en tu navegador preferido.
-
-#Estructura del Proyecto
-
-    index.html: Página principal del blog.
-    styles.css: Estilos para el diseño y la presentación del contenido.
-    script.js: Archivo JavaScript para las funcionalidades interactivas como validación de formularios y desplazamiento suave.
-    img/: Carpeta que contiene todas las imágenes utilizadas en el proyecto.
-    Pdf/: Carpeta que contiene los documentos descargables.
 
 ## Correcciones y Mejoras Recientes
 
