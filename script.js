@@ -4,9 +4,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
         e.preventDefault();
         const targetID = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetID);
+        if (targetElement) {
         targetElement.scrollIntoView({
             behavior: 'Smooth'
-        });
+            });
+        }
     });
 });
 
