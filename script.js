@@ -12,14 +12,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-
-const consumerKey = '113196-84ea231d666b27c0254a8ac';
-const redirectUri = 'https://choopyyy.github.io/'; 
-
-// Solicita autorización al usuario
-window.location.href = `https://getpocket.com/v3/oauth/authorize?request_token=REQUEST_TOKEN&redirect_uri=${redirectUri}`;
-
-
 // Array de productos
 const productos = [
     { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', archivo: 'Pdf/McKraken[2].pdf' },
