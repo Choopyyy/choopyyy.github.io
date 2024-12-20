@@ -44,23 +44,20 @@ p {
 }  
 
 nav ul, li, a {
+
     display: flex;
     justify-content: space-around;
     list-style: none;
     text-decoration: none;
     margin-block: 10px 20px;
+    writing-mode: horizontal-tb;
     padding: 0;
     color:white;
 }
 
 /* Estilo general de la seccion de contenidos*/
 
-.avatar img {
-    width: 100%;
-    max-width: 100px;
-}
-
-.elementos .container {
+.elementor-widget-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -78,7 +75,7 @@ nav ul, li, a {
     display: inline-block;
 }
 
-.elementos container img {
+.elementor-widget-container img {
     height: auto;
     max-width: 100%;
     border: none;
@@ -99,46 +96,51 @@ nav ul, li, a {
 /* Estilo general de la seccion de recomendaciones de libros*/
 
 .container {
- display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin: 0 auto;
+    display:flex;
+    flex-direction: row;
+    gap: 1.5em;
+    justify-content:space-around;
+    padding: 5em;
+    box-sizing: border-box;
 }
 
 .product-card {
-    display: grid;
-   background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    background-color: #1A1A1A;
+    color: #d3d3d3;
+    width: auto;
+    padding: 1em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-align: center;
+    box-sizing: border-box;
+    gap: 1em;
 }
 
 .product-card img {
+    transform: translateY(-5px) translate;
     width: 100px;
     height: auto;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 5px;
+    margin-bottom: 0.5em;
+    margin: 1em;
 }
 
 .product-card h3 {
-    color: #fff;
+    color: #ffff;
     margin: 0;
+    text-align: column;
 }
 
 .product-card button {
     background-color: #e9c46a;
     color: #2a3e4c;
     border: none;
-    padding: 0.5em 1em;
-    border-radius: 5px;
+    padding: 1px 2px;
+    border-radius: 2px;
     cursor: pointer;
-}
-
-.product-card button:hover {
-    background-color: #2a9d8f;
-    color: #fff;
 }
 
 #form {
@@ -197,26 +199,9 @@ nav ul, li, a {
     margin: 0;
 }
 
-#carrito {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
+/* Estilo general de la seccion de contacto */
 
-#carrito-items {
-    list-style-type: none;
-    padding: 0;
-}
-
-#carrito-items li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Estilo para los botones generales */
-button, #carrito button, #contact button[type="submit"] {
+button:hover { 
     font-family: inherit;
     font-size: 100%;
     background-color: #e9c46a;
@@ -226,12 +211,6 @@ button, #carrito button, #contact button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
-
-#carrito button, #contact button[type="submit"] {
-    padding: 0.5em 1em;
-    border-radius: 5px;
-}
-
 textarea {
     display: block;
   
@@ -281,11 +260,11 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 #contact input[type="text"],
 #contact input[type="email"],
 #contact text,
-#contact button[type="submit"] {
+#contact button[type="sumit"] {
     font-size: 14px;
 }
 
-#contact button[type="submit"] {
+#contact button[type="sumit"] {
     padding: 10px;
 }
 
@@ -298,7 +277,8 @@ section {
 
 /* Media Query para pantallas medianas (tablets) */
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 900px)
+{
     #contact {
         max-width: 80%;
     }
@@ -312,10 +292,6 @@ section {
 
     .container, .product-card {
         flex-direction: column;
-    }
-    
-    .product-card {
-        width: calc(50% - 1em);
     } 
 }
 
@@ -331,4 +307,6 @@ img {
         max-width: 700px;
     }
 }
+
+
 
