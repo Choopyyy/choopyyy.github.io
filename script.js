@@ -14,7 +14,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
 
 
 const consumerKey = '113196-84ea231d666b27c0254a8ac';
-const redirectUri = 'http://127.0.0.1:5500/Proyecto final/index.html'; 
+const redirectUri = 'https://choopyyy.github.io/'; 
 
 // Solicita autorización al usuario
 window.location.href = `https://getpocket.com/v3/oauth/authorize?request_token=REQUEST_TOKEN&redirect_uri=${redirectUri}`;
