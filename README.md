@@ -39,8 +39,29 @@ bash
 
     index.html: Página principal del blog.
     styles.css: Estilos para el diseño y la presentación del contenido.
+    script.js: Archivo JavaScript para las funcionalidades interactivas como validación de formularios y desplazamiento suave.
     img/: Carpeta que contiene todas las imágenes utilizadas en el proyecto.
     Pdf/: Carpeta que contiene los documentos descargables.
+
+## Correcciones y Mejoras Recientes
+
+### 1. **Mejoras en el diseño responsivo:**
+   - Se añadieron **media queries** para mejorar la visualización en pantallas pequeñas (móviles) y grandes (monitores de escritorio).
+   - El diseño ahora se adapta automáticamente a diferentes tamaños de pantalla utilizando **Flexbox** y **CSS Grid**, haciendo que las tarjetas de productos y el formulario de contacto se ajusten adecuadamente.
+
+### 2. **Optimización de imágenes:**
+   - Las imágenes en el sitio web ahora tienen un comportamiento más adecuado y se ajustan de manera fluida a las dimensiones del contenedor. 
+   - Se mejoró la accesibilidad y visibilidad en dispositivos móviles utilizando la propiedad `object-fit`.
+
+### 3. **Mejoras en la experiencia del usuario:**
+   - Se agregaron **transiciones suaves** a los botones y a la clasificación de productos para hacer la interacción más fluida y atractiva.
+   - Se corrigió el uso de las imágenes para que respondan mejor a la interfaz, sin perder calidad en pantallas más pequeñas.
+
+### 4. **Validación de formularios mejorada:**
+   - Se mejoró la validación de los formularios, especialmente en la sección de contacto, para asegurarse de que los campos del nombre y correo electrónico se llenen correctamente antes de enviar el formulario.
+
+### 5. **Corrección en la accesibilidad:**
+   - Se hicieron ajustes en la legibilidad de las etiquetas y formularios, asegurando que los campos sean accesibles y fáciles de usar en dispositivos móviles.
 
 #Contribuciones
 
