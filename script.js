@@ -37,7 +37,9 @@ function generarProductos() {
 }
 
 // Llamar a la función para generar los productos al cargar la página
-document.addEventListener('DOMContentLoaded', generarProductos);
+document.addEventListener('DOMContentLoaded', function() {
+    generarProductos();  // Llamar a la función de generación de productos cuando el DOM esté listo
+});
     
 
 
