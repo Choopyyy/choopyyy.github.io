@@ -153,7 +153,7 @@ nav ul, li, a {
     cursor: pointer;
 }
 
-.product-cart button:hover {
+.product-cart button:hover, .carrito button:hover, .menu-lateral:hover, .menu-lateral.open button:hover #contact button:hover {
     background-color: #2a9d8f;
     color: #fff;
 }
