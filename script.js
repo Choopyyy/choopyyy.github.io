@@ -93,7 +93,7 @@ function descargarCarrito() {
 }
 
 // Event listener para agregar productos al carrito
-document.querySelectorAll('.add-to-cart').forEach(button => {
+document.querySelectorAll('.add-to-card').forEach(button => {
     button.addEventListener('click', function() {
         const producto = {
             id: this.parentElement.getAttribute('data-id'),
