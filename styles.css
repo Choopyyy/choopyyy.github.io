@@ -201,6 +201,33 @@ nav ul, li, a {
     margin: 0;
 }
 
+#carrito {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#carrito-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#carrito-items li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#carrito button {
+    background-color: #e9c46a;
+    color: #2a3e4c;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 /* Estilo general de la seccion de contacto */
 
 button { 
