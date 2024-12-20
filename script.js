@@ -63,6 +63,29 @@ function agregarAlCarrito(producto) {
     }
 }
 
+//Mostrar detalles del producto
+function mostrarDetalles(id) {
+    const producto = productos.find(prod) =>
+    prod.id == id);
+    alert('Detalles de ${producto.nombre}: $
+          {producto.detalle}`);
+          } 
+
+//Eliminar el producto
+function eliminarProducto(id) {
+    const producto =
+document.querySelector(`#lista-productos li:nth-child(${id})`);
+    if (producto) {
+        listaProductos.removeChild(producto);
+    }
+}
+
+//Vaciar carrito
+botonVaciarCarrito.addEvenListener('click', ()
+    => {
+        listaProductos.innerHTML = '';
+    });
+
 // Función para descargar todos los archivos en el carrito
 function descargarCarrito() {
     if (carrito.length === 0) {
