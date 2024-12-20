@@ -43,7 +43,72 @@ document.addEventListener('DOMContentLoaded', function() {
     generarProductos();  // Llamar a la función de generación de productos cuando el DOM esté listo
 });
     
+let carrito = [];
+function actualizarCarrito() {
+    const carritoItems = document.getElementById('carrito.items');
+    carritoItems.innerHTML = '';
 
+    carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name}`;
+        carritoItems.appendChild(li);
+    });
+}
+// Función para agregar archivos al carrito
+function agregarAlCarrito(producto) {
+    // Verificar si el archivo ya está en el carrito
+    if (!carrito.some(item => item.id === producto.id)) {
+        carrito.push(producto);
+        actualizarCarrito();
+    }
+}
+
+// Función para descargar todos los archivos en el carrito
+function descargarCarrito() {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío. Agrega archivos para descargar.");
+        return;
+    }
+
+    // Crear un archivo ZIP para contener todos los PDFs
+    let zip = new JSZip();
+
+    // Agregar cada archivo al ZIP
+    carrito.forEach(item => {
+        fetch(item.file)
+            .then(response => response.blob())
+            .then(blob => {
+                zip.file(item.name, blob);
+                if (carrito.indexOf(item) === carrito.length - 1) {
+                    // Descargar el archivo ZIP cuando todos los archivos hayan sido agregados
+                    zip.generateAsync({ type: 'blob' }).then(content => {
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(content);
+                        link.download = "carrito_descarga.zip";
+                        link.click();
+                    });
+                }
+            });
+    });
+}
+
+// Event listener para agregar productos al carrito
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const producto = {
+            id: this.parentElement.getAttribute('data-id'),
+            name: this.parentElement.getAttribute('data-name'),
+            file: this.parentElement.getAttribute('data-file')
+        };
+        agregarAlCarrito(producto);
+    });
+});
+
+// Event listener para descargar el carrito
+document.getElementById('descargar-carrito').addEventListener('click', function() {
+    descargarCarrito();
+});
+        
 
 //Formulario de contacto: Validación de campos antes de enviarlo.
 // Validar formulario antes de enviarlo
