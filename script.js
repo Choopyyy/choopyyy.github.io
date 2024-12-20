@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 let carrito = [];
 function actualizarCarrito() {
-    const carritoItems = document.getElementById('carrito.items');
+    const carritoItems = document.getElementById('carrito-items');
     carritoItems.innerHTML = '';
 
     carrito.forEach(item => {
