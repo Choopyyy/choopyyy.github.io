@@ -121,13 +121,10 @@ nav ul, li, a {
 }
 
 .product-card img {
-    transform: translateY(-5px) translate;
     width: 100px;
-    height: auto;
-    object-fit: cover;
+    height: 100px;
+    object-fit: cover; 
     border-radius: 5px;
-    margin-bottom: 0.5em;
-    margin: 1em;
 }
 
 .product-card h3 {
