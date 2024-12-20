@@ -12,13 +12,21 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
+
+const consumerKey = '113196-84ea231d666b27c0254a8ac';
+const redirectUri = 'http://127.0.0.1:5500/Proyecto final/index.html'; 
+
+// Solicita autorización al usuario
+window.location.href = `https://getpocket.com/v3/oauth/authorize?request_token=REQUEST_TOKEN&redirect_uri=${redirectUri}`;
+
+
 // Array de productos
 const productos = [
-    { id: 1, nombre: 'Biomecanica en Protesis Parcial Removible', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', archivo: 'pdf/protesis_parcial_removible.pdf' },
-    { id: 2, nombre: 'Biomecanica en Protesis Parcial Fija', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/componentes-ppf.gif', archivo: 'pdf/protesis_parcial_fija.pdf' },
-    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/clasificacion de kennedy.png', archivo: 'pdf/clasificacion_kennedy.pdf' },
-    { id: 4, nombre: 'Guía de ejercicios de Protesis Parcial Removible', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/guia de ejercicios.jpg', archivo: 'pdf/guia_ejercicios.pdf' },
-    { id: 5, nombre: 'Sobre el Autor', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/AUTORA.jpg', archivo: 'pdf/sobre_autor.pdf' },
+    { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 2, nombre: 'Biomecanica en PPF', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/componentes-ppf.gif', archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/clasificacion de kennedy.png', archivo: 'Pdf/oclusion-hector-alvarez-cantoni.pdf' },
+    { id: 4, nombre: 'Guia de ejerccios PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/guia de ejercicios.jpg', archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
+    { id: 4, nombre: 'SOBRE EL AUTOR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/AUTORA.jpg', archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
 ];
 
 // Función para generar productos dinámicamente
@@ -28,7 +36,7 @@ function generarProductos() {
 
     productos.forEach(producto => {
         const tarjeta = document.createElement('div');
-        tarjeta.classList.add('product-card');
+        tarjeta.classList.add('product-cart');
         tarjeta.setAttribute('data-id', producto.id);  // Establecer el ID del producto
         tarjeta.setAttribute('data-name', producto.nombre);
         tarjeta.setAttribute('data-file', producto.archivo);  // Establecer archivo
@@ -36,8 +44,8 @@ function generarProductos() {
         tarjeta.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
-            <p>${producto.descripcion}</p>
-            <button class="add-to-cart">Agregar al carrito</button>
+            <p>${producto.descripcion}</p> 
+            <button class="add-to-cart">Ver más</button> 
         `;
         contenedor.appendChild(tarjeta);
     });
@@ -46,50 +54,76 @@ function generarProductos() {
 // Llamar a la función para generar los productos al cargar la página
 document.addEventListener('DOMContentLoaded', generarProductos);
 
-// Carrito de compras
+// Arreglo para almacenar los productos del carrito
 let carrito = [];
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Actualiza el carrito cuando la página se cargue
+    actualizarCarrito();
+
+    // Asocia los eventos de los botones de "Agregar al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const producto = {
+                id: this.closest('.product-cart').getAttribute('data-id'),
+                nombre: this.closest('.product-cart').getAttribute('data-name'),
+                archivo: this.closest('.product-cart').getAttribute('data-file')
+            };
+            agregarAlCarrito(producto);
+        });
+    });
+});
+
+// Función para agregar al carrito
+function agregarAlCarrito(producto) {
+    // Verifica si el producto ya está en el carrito
+    if (!carrito.some(item => item.id === producto.id)) {
+        carrito.push(producto);
+        actualizarCarrito(); // Actualiza la vista del carrito
+    }
+}
+
+// Función para actualizar la lista del carrito
 function actualizarCarrito() {
     const carritoItems = document.getElementById('carrito-items');
-    carritoItems.innerHTML = '';
+    carritoItems.innerHTML = '';  // Limpiar elementos anteriores
 
     carrito.forEach(item => {
+        // Crear un 'li' para cada producto
         const li = document.createElement('li');
-        li.textContent = `${item.nombre}`;
+        li.textContent = item.nombre;
+
+        // Crear botón para eliminar el producto del carrito
+        const botonEliminar = document.createElement('button');
+        botonEliminar.textContent = "Eliminar";
+        
+        // Asociar el evento para eliminar el producto
+        botonEliminar.addEventListener('click', function() {
+            eliminarProducto(item.id);
+        });
+
+        // Añadir el botón de eliminar al 'li'
+        li.appendChild(botonEliminar);
+
+        // Añadir el 'li' al carrito
         carritoItems.appendChild(li);
     });
 }
 
-// Función para agregar productos al carrito
-function agregarAlCarrito(producto) {
-    if (!carrito.some(item => item.id === producto.id)) {
-        carrito.push(producto);
-        actualizarCarrito();
-    }
-}
-
-// Mostrar detalles del producto
-function mostrarDetalles(id) {
-    const producto = productos.find(prod => prod.id === id);
-    if (producto) {
-        alert(`Detalles de ${producto.nombre}: ${producto.descripcion}`);
-    }
-}
-
-// Eliminar producto del carrito
+// Función para eliminar un producto del carrito
 function eliminarProducto(id) {
     carrito = carrito.filter(item => item.id !== id);
-    actualizarCarrito();
+    actualizarCarrito();  // Actualizar el carrito después de eliminar un producto
 }
 
-// Vaciar carrito
+// Función para vaciar el carrito
 document.getElementById('vaciar-carrito').addEventListener('click', () => {
     carrito = [];
-    actualizarCarrito();
+    actualizarCarrito();  // Limpiar la lista del carrito
 });
 
-// Función para descargar los archivos en el carrito
-function descargarCarrito() {
+// Función para descargar los archivos del carrito
+document.getElementById('descargar-carrito').addEventListener('click', function() {
     if (carrito.length === 0) {
         alert("El carrito está vacío. Agrega productos para descargar.");
         return;
@@ -113,24 +147,10 @@ function descargarCarrito() {
                 }
             });
     });
-}
-
-// Event listener para agregar productos al carrito
-document.querySelectorAll('.add-to-card').forEach(button => {
-    button.addEventListener('click', function() {
-        const producto = {
-            id: this.parentElement.getAttribute('data-id'),
-            nombre: this.parentElement.getAttribute('data-name'),
-            archivo: this.parentElement.getAttribute('data-file')
-        };
-        agregarAlCarrito(producto);
-    });
 });
 
-// Event listener para descargar el carrito
-document.getElementById('descargar-carrito').addEventListener('click', function() {
-    descargarCarrito();
-});
+
+
 
 // Validación de formulario de contacto
 document.querySelector('form').addEventListener('submit', function(event) {
