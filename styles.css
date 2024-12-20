@@ -238,7 +238,7 @@ button, #carrito button, #contact button[type="submit"] {
     padding: 0.5em 1em;
     border-radius: 5px;
 }
-}
+
 textarea {
     display: block;
   
@@ -288,11 +288,11 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 #contact input[type="text"],
 #contact input[type="email"],
 #contact text,
-#contact button[type="sumit"] {
+#contact button[type="submit"] {
     font-size: 14px;
 }
 
-#contact button[type="sumit"] {
+#contact button[type="submit"] {
     padding: 10px;
 }
 
@@ -319,10 +319,11 @@ section {
 
     .container, .product-card {
         flex-direction: column;
+    }
+    
     .product-card {
         width: calc(50% - 1em);
     } 
-}
 }
 
 img {
