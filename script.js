@@ -1,15 +1,6 @@
-// Desplazamiento suave para la navegación
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetID = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetID);
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
+
+document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.querySelector('.menu-lateral').classList.toggle('open');
 });
 
 // Array de productos
