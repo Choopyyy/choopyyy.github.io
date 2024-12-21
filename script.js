@@ -5,11 +5,11 @@ document.getElementById('menu-toggle').addEventListener('click', () => {
 
 // Array de productos
 const productos = [
-    { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', archivo: 'Pdf/McKraken[2].pdf' },
-    { id: 2, nombre: 'Biomecanica en PPF', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/componentes-ppf.gif', archivo: 'Pdf/McKraken[2].pdf' },
-    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/clasificacion de kennedy.png', archivo: 'Pdf/oclusion-hector-alvarez-cantoni.pdf' },
-    { id: 4, nombre: 'Guia de ejerccios PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/guia de ejercicios.jpg', archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
-    { id: 4, nombre: 'SOBRE EL AUTOR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/AUTORA.jpg', archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
+    { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 2, nombre: 'Biomecanica en PPF', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/componentes-ppf.gif', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/clasificacion de kennedy.png', precio: 50.00, archivo: 'Pdf/oclusion-hector-alvarez-cantoni.pdf' },
+    { id: 4, nombre: 'Guia de ejerccios PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/guia de ejercicios.jpg', precio: 50.00, archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
+    { id: 5, nombre: 'SOBRE EL AUTOR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/AUTORA.jpg', precio: 50.00, archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
 ];
 
 // Función para generar productos dinámicamente
@@ -76,9 +76,9 @@ function mostrarConfirmacion() {
 }
 
 function actualizarIcono() {
-    let cantidad = document.querySelectorAll("#carrito-items li").length;
-    document.getElementById("icono-cantidad").innerText = cantidad;
+    document.getElementById("icono-cantidad").innerText = carrito.length;
 }
+
 
 // Función para actualizar la lista del carrito
 function actualizarCarrito() {
@@ -110,13 +110,10 @@ function actualizarCarrito() {
 let totalCarrito = 0;
 
 function actualizarTotal() {
-    let items = document.querySelectorAll("#carrito-items li");
-    totalCarrito = 0;
-    items.forEach(item => {
-        const precio = parseFloat(item.getAttribute('data-price')); 
-    });
+    totalCarrito = carrito.reduce((total, item) => total + item.precio, 0);
     document.getElementById("total-carrito").innerText = totalCarrito.toFixed(2); 
 }
+
 
 // Función para eliminar un producto del carrito
 function eliminarProducto(id) {
