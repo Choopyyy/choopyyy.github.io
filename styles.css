@@ -64,7 +64,6 @@ nav ul, li, a {
     list-style: none;
     text-decoration: none;
     margin-block: 10px 20px;
-    writing-mode: horizontal-tb;
     padding: 0;
     color:white;
 }
@@ -91,7 +90,7 @@ nav ul, li, a {
     max-width: 100%;
     border: none;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .elementos-heading-tittle {
@@ -235,7 +234,7 @@ nav ul, li, a {
 
 /* Estilo para los botones generales */
 
-button, #carrito button, #contact button[type="submit"] {
+button, #carrito button {
     font-family: inherit;
     font-size: 100%;
     background-color: #e9c46a;
@@ -246,10 +245,16 @@ button, #carrito button, #contact button[type="submit"] {
     cursor: pointer;
 }
 
-#carrito button, #contact button[type="submit"] {
-    padding: 0.5em 1em;
-    border-radius: 5px;
+#contact button[type="submit"] {
+    background-color: #2a9d8f;
+    color: white;
 }
+
+#contact button[type="reset"] {
+    background-color: #e9c46a;
+    color: #2a3e4c;
+}
+
 
 /* Estilo general de la seccion de contacto */
 
@@ -314,6 +319,7 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 2em;
     margin: 1em 0;
     border-radius: 8px
+    }
 }
 
 @media (max-width:768px) {
@@ -322,9 +328,10 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
     
-    .producto-cart {
+    .product-cart {
         width:100%
         max-width: 90%
+    }
     .product-cart img {
         width: 60px;
         height: 60px;
