@@ -5,52 +5,67 @@ document.getElementById('menu-toggle').addEventListener('click', () => {
 
 // Array de productos
 const productos = [
-    { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
-    { id: 2, nombre: 'Biomecanica en PPF', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/componentes-ppf.gif', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
-    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/clasificacion de kennedy.png', precio: 50.00, archivo: 'Pdf/oclusion-hector-alvarez-cantoni.pdf' },
+    { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El diseño de la P.P.R debe permitirle ingresar al lugar de asentamiento, es decir lograr una correcta inserción, un asentamiento correcto y desde esa posición permitir una extracción sin trabas, independientemente de la acción de los retenedores, que deben retener pero no trabar.', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 2, nombre: 'Biomecanica en PPF', descripcion: 'Hoy se puede considerar que la biomecánica de las prótesis consiste en su funcionamiento basado en tres principios: retención, soporte y estabilidad.', imagen: 'img/componentes-ppf.gif', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
+    { id: 3, nombre: 'Clasificación de Kennedy', descripcion: 'La clasificación de arcadas de Kennedy es un sistema ampliamente utilizado en la práctica odontológica para describir los patrones de edentulismo parcial en los maxilares.', imagen: 'img/clasificacion de kennedy.png', precio: 50.00, archivo: 'Pdf/oclusion-hector-alvarez-cantoni.pdf' },
     { id: 4, nombre: 'Guia de ejerccios PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/guia de ejercicios.jpg', precio: 50.00, archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
-    { id: 5, nombre: 'SOBRE EL AUTOR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/AUTORA.jpg', precio: 50.00, archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
+    { id: 5, nombre: 'SOBRE EL AUTOR', descripcion: 'Odontologo, especialista en Rehabilitación Oral. Docente universitaria.', imagen: 'img/AUTORA.jpg', precio: 50.00, archivo: 'Pdf/370734849-Prostodoncia-Total-Sheldon-Winkler_compressed (1).pdf' },
 ];
 
-// Función para generar productos dinámicamente
 function generarProductos() {
-    const contenedor = document.querySelector('.elementos.container');
-    contenedor.innerHTML = '';  // Limpiar contenido previo
+    const contenedor = document.querySelector('.elementor.container');
+    contenedor.innerHTML = '';  
 
     productos.forEach(producto => {
         const tarjeta = document.createElement('div');
-        tarjeta.classList.add('product-cart');
-        tarjeta.setAttribute('data-id', producto.id);  // Establecer el ID del producto
+        tarjeta.classList.add('product-card');
+        tarjeta.setAttribute('data-id', producto.id);  
         tarjeta.setAttribute('data-name', producto.nombre);
-        tarjeta.setAttribute('data-file', producto.archivo);  // Establecer archivo
+        tarjeta.setAttribute('data-file', producto.archivo);  
+
+        const detalles = document.createElement('div');
+        detalles.classList.add('detalles-adicionales');
+        detalles.innerHTML = `
+            <p><strong>Precio:</strong> $${producto.precio}</p>
+            <p><strong>Archivo PDF:</strong> <a href="${producto.archivo}" target="_blank">Descargar</a></p>
+        `;
+        detalles.style.display = 'none';  
 
         tarjeta.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p> 
-            <button class="add-to-cart">Ver más</button> 
+            <button class="ver-mas">Ver más</button> 
         `;
+        
+        tarjeta.appendChild(detalles); 
         contenedor.appendChild(tarjeta);
+
+        // Agregar el evento al botón "Ver más"
+        const botonVerMas = tarjeta.querySelector('.ver-mas');
+        botonVerMas.addEventListener('click', () => {
+            // Toggle para mostrar u ocultar los detalles
+            const detallesElement = tarjeta.querySelector('.detalles-adicionales');
+            const isVisible = detallesElement.style.display === 'block';
+            detallesElement.style.display = isVisible ? 'none' : 'block';
+        });
     });
 }
 
-// Llamar a la función para generar los productos al cargar la página
+generarProductos();
+
 document.addEventListener('DOMContentLoaded', generarProductos);
 
-// Arreglo para almacenar los productos del carrito
 let carrito = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Actualiza el carrito cuando la página se cargue
     actualizarCarrito();
-
-    // Asocia los eventos de los botones de "Agregar al carrito"
-    document.querySelectorAll('.add-to-cart').forEach(button => {
+    document.querySelectorAll('.add-to-card').forEach(button => {
         button.addEventListener('click', function() {
             const producto = {
-                id: this.closest('.product-cart').getAttribute('data-id'),
-                nombre: this.closest('.product-cart').getAttribute('data-name'),
-                archivo: this.closest('.product-cart').getAttribute('data-file')
+                id: this.closest('.product-card').getAttribute('data-id'),
+                nombre: this.closest('.product-card').getAttribute('data-name'),
+                archivo: this.closest('.product-card').getAttribute('data-file')
             };
             agregarAlCarrito(producto);
         });
@@ -80,29 +95,28 @@ function actualizarIcono() {
 }
 
 
-// Función para actualizar la lista del carrito
+
 function actualizarCarrito() {
     const carritoItems = document.getElementById('carrito-items');
-    carritoItems.innerHTML = '';  // Limpiar elementos anteriores
+    carritoItems.innerHTML = '';  
 
     carrito.forEach(item => {
-        // Crear un 'li' para cada producto
+      
         const li = document.createElement('li');
         li.textContent = item.nombre;
 
-        // Crear botón para eliminar el producto del carrito
+     
         const botonEliminar = document.createElement('button');
         botonEliminar.textContent = "Eliminar";
         
-        // Asociar el evento para eliminar el producto
+   
         botonEliminar.addEventListener('click', function() {
             eliminarProducto(item.id);
         });
 
-        // Añadir el botón de eliminar al 'li'
         li.appendChild(botonEliminar);
 
-        // Añadir el 'li' al carrito
+     
         carritoItems.appendChild(li);
     });
 }
@@ -153,8 +167,6 @@ document.getElementById('descargar-carrito').addEventListener('click', function(
             });
     });
 });
-
-
 
 
 // Validación de formulario de contacto
