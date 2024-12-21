@@ -62,8 +62,22 @@ function agregarAlCarrito(producto) {
     // Verifica si el producto ya está en el carrito
     if (!carrito.some(item => item.id === producto.id)) {
         carrito.push(producto);
-        actualizarCarrito(); // Actualiza la vista del carrito
+        actualizarCarrito(); 
+        mostrarConfirmacion();
     }
+}
+
+function mostrarConfirmacion() {
+    let confirmacion = document.getElementById("confirmacion-agregado");
+    confirmacion.style.display = "block";
+    setTimeout(() => {
+        confirmacion.style.display = "none";
+    }, 2000); 
+}
+
+function actualizarIcono() {
+    let cantidad = document.querySelectorAll("#carrito-items li").length;
+    document.getElementById("icono-cantidad").innerText = cantidad;
 }
 
 // Función para actualizar la lista del carrito
@@ -91,6 +105,15 @@ function actualizarCarrito() {
         // Añadir el 'li' al carrito
         carritoItems.appendChild(li);
     });
+}
+
+let totalCarrito = 0;
+
+function actualizarTotal() {
+    let items = document.querySelectorAll("#carrito-items li");
+    totalCarrito = 0;
+    items.forEach(item => {
+    document.getElementById("total-carrito").innerText = totalCarrito.toFixed(2);
 }
 
 // Función para eliminar un producto del carrito
