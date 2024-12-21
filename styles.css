@@ -107,7 +107,7 @@ nav ul, li, a {
 
 .container {
     display:flex;
-    flex-wrap: wrap;
+    flex-direction: space-around;
     gap: 1em;
     justify-content:space-evenly;
     padding: 5em;
