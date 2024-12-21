@@ -298,7 +298,11 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     section {
-        padding: 1em;
+    background-color: whitesmoke;
+    padding: 2em;
+    margin: 1em 0;
+    border-radius: 8px
+
     }
 }
 
