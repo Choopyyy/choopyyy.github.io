@@ -329,18 +329,6 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 }
 
-@media (max-width: 768px) {
-
-    .container, .product-cart, .product-cart img, .reviews-cart, .elementos-heading-tittle {
-        flex-direction: column;
-    } 
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* Media Query para pantallas grandes (Escritorios y monitores amplios) */
 
 @media (min-width: 901px) {
