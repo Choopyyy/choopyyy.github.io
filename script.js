@@ -1,3 +1,10 @@
+fetch('https://www.googleapis.com/books/v1/volumes?q=javascript')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.items);
+    // Aquí puedes manipular la respuesta y mostrar los resultados en tu web
+  })
+  .catch(error => console.log('Error:', error));
 
 document.getElementById('menu-toggle').addEventListener('click', () => {
     document.querySelector('.menu-lateral').classList.toggle('open');
