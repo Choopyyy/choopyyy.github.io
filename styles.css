@@ -318,12 +318,6 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 }
 
-@media (max-width: 600px) {
-    .container, .product-cart {
-        gap: 0.5em;  /* Reducir gap en pantallas pequeñas */
-    }
-}
-
 /* Media Query para pantallas medianas (tablets) */
 
 @media (min-width: 601px) and (max-width: 900px)
