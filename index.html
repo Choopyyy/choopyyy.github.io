@@ -42,12 +42,18 @@
         </section>
 
         <section id="services">
-            <h2>Descargas de interes</h2>
-            <em>
+            <h2>Descargas de interes-Busqueda de Libros</h2>
+
+             <input type="text" id="searchQuery" placeholder="Buscar libro...">
+            <button onclick="searchBooks()">Buscar</button>
+            <div id="results"></div>
+
+             <em>
                 <a href="Pdf/Glosario de terminos Prostodonticos.pdf">
                   Descarga el Glosario de terminos Prostodonticos(PDF, 931KB)
                 </a>
             </em>
+            
         </section>
         
         <div class="elementos container"></div> <!-- Aquí se agregarán las tarjetas de productos desde JavaScript -->
@@ -190,7 +196,8 @@
             <img src="img/linkedin.png" alt="Linkedin" width="40px">
         </footer>
     
-<script src="script.js"></script>
+<script src="script.js"></script> <!-- Contiene otras funciones del proyecto -->
+<script src="app.js"></script> <!-- Contiene la función de búsqueda -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </body>
 </html>
