@@ -1,15 +1,3 @@
-fetch('https://www.googleapis.com/books/v1/volumes?q=javascript')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.items);
-    // Aquí puedes manipular la respuesta y mostrar los resultados en tu web
-  })
-  .catch(error => console.log('Error:', error));
-
-document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.querySelector('.menu-lateral').classList.toggle('open');
-});
-
 // Array de productos
 const productos = [
     { id: 1, nombre: 'Biomecanica en PPR', descripcion: 'El documento desarrolla los principios biomecanicos...', imagen: 'img/fuerzas-oclusales-bases-extension-distal.jpg', precio: 50.00, archivo: 'Pdf/McKraken[2].pdf' },
