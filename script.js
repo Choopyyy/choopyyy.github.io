@@ -113,9 +113,10 @@ function actualizarTotal() {
     let items = document.querySelectorAll("#carrito-items li");
     totalCarrito = 0;
     items.forEach(item => {
-    document.getElementById("total-carrito").innerText = totalCarrito.toFixed(2);
+        const precio = parseFloat(item.getAttribute('data-price')); 
+    });
+    document.getElementById("total-carrito").innerText = totalCarrito.toFixed(2); 
 }
-                  }
 
 // Función para eliminar un producto del carrito
 function eliminarProducto(id) {
