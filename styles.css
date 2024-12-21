@@ -57,6 +57,18 @@ p {
     left: 0;
 }
 
+nav ul, li, a {
+
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    text-decoration: none;
+    margin-block: 10px 20px;
+    writing-mode: horizontal-tb;
+    padding: 0;
+    color:white;
+}
+
 
 /* Estilo general de la seccion de contenidos*/
 
