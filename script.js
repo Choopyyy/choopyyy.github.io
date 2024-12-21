@@ -115,6 +115,7 @@ function actualizarTotal() {
     items.forEach(item => {
     document.getElementById("total-carrito").innerText = totalCarrito.toFixed(2);
 }
+                  }
 
 // Función para eliminar un producto del carrito
 function eliminarProducto(id) {
