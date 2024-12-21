@@ -71,21 +71,24 @@ nav ul, li, a {
 
 /* Estilo general de la seccion de contenidos*/
 
-.elementos.container {
-    display:flex;
-    flex-direction: column;
+.elementor.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     gap: 5px;
-    justify-content:column;
-    padding: 5em;
-    box-sizing: border-box;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin: 0 auto;
 }
 
-.elementos image img {
+.elementor image img {
     vertical-align: middle;
     display: inline-block;
 }
 
-.elementos.container img {
+.elementor.container img {
     height: auto;
     max-width: 100%;
     border: none;
@@ -93,7 +96,7 @@ nav ul, li, a {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.elementos-heading-tittle {
+.elementor-heading-tittle {
     color: #303030;
     font-family: "Montserrat", Sans-serif;
     font-size: 15px;
@@ -105,7 +108,7 @@ nav ul, li, a {
 
 /* Estilo general de la seccion de recomendaciones de libros*/
 
-.container {
+.elementor-widget-container {
     display:flex;
     flex-direction: row;
     gap: 1.5em;
@@ -114,7 +117,7 @@ nav ul, li, a {
     box-sizing: border-box;
 }
 
-.product-cart {
+.product-card {
     background-color: #1A1A1A;
     color: #d3d3d3;
     width: auto;
@@ -128,32 +131,32 @@ nav ul, li, a {
     gap: 1em;
 }
 
-.product-cart img {
+.product-card img {
     transform: translateY(-5px) translate;
     width: 100px;
-    height: 100px;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 0.5em;
-    margin: 0.5em;
+    margin: 1em;
 }
 
-.product-cart h3 {
+.product-card h3 {
     color: #ffff;
     margin: 0;
-    text-align: center;
+    text-align: column;
 }
 
-.product-cart button {
+.product-card button {
     background-color: #e9c46a;
     color: #2a3e4c;
     border: none;
-    padding: 0.5em 1em;
-    border-radius: 5px;
+    padding: 1px 2px;
+    border-radius: 2px;
     cursor: pointer;
 }
 
-.product-cart button:hover, .carrito button:hover, .menu-lateral:hover, .menu-lateral.open button:hover #contact button:hover {
+.product-card button:hover, .carrito button:hover, .menu-lateral:hover, .menu-lateral.open button:hover #contact button:hover {
     background-color: #2a9d8f;
     color: #fff;
 }
@@ -215,19 +218,19 @@ nav ul, li, a {
 
 /* Estilo general de la seccion de reseñas*/
 
-.reviews-cart {
+.reviews-card {
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.reviews-cart img {
+.reviews-card img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     margin-bottom: 1em;
 }
 
-.reviews-cart h3 {
+.reviews-card h3 {
     color: #ffff;
     margin: 0;
 }
@@ -294,6 +297,7 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 /* Media Query para pantallas pequeñas (moviles) */
 
 @media (max-width: 600px) {
+
     #contact {
         padding: 15px;
     }
@@ -302,43 +306,37 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         font-size: 20px;
     }
 
-    #contact label,
-    #contact input[type="text"],
-    #contact input[type="email"],
-    #contact textarea,
-    #contact button[type="submit"] {
-        font-size: 14px;
-    }
+#contact label,
+#contact input[type="text"],
+#contact input[type="email"],
+#contact text,
+#contact button[type="sumit"] {
+    font-size: 14px;
+}
 
-    #contact button[type="submit"] {
-        padding: 10px;
-    }
+#contact button[type="sumit"] {
+    padding: 10px;
+}
 
-    section {
+section {
     background-color: whitesmoke;
     padding: 2em;
     margin: 1em 0;
-    border-radius: 8px
-    }
+    border-radius: 4px;
+    max-width: 100%;
+    height: auto;
 }
 
-@media (max-width:768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .product-cart {
-        width:100%
-        max-width: 90%
-    }
-    .product-cart img {
-        width: 60px;
-        height: 60px;
-    }
+.elementor-widget-container, .product-card {
+    flex-direction: column;
+} 
 
+img {
+max-width: 100%;
+height: auto;
 }
 
+}
 /* Media Query para pantallas medianas (tablets) */
 
 @media (min-width: 601px) and (max-width: 900px)
@@ -350,6 +348,30 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     #contact h2 {
         font-size: 22px;
     }
+
+    .elementor-widget-container, .product-card {
+        flex-direction: column;
+    } 
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+}
+
+@media (max-width: 768px) {
+
+    .elementor-widget-container, .product-card {
+        flex-direction: column;
+    } 
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 }
 
 /* Media Query para pantallas grandes (Escritorios y monitores amplios) */
@@ -358,16 +380,4 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     #contact {
         max-width: 700px;
     }
-
-
-    .container, .product-cart, .product-cart img, .reviews-cart, .elementos-heading-tittle {
-        flex-direction: column;
-    } 
-
-     section {
-    background-color: whitesmoke;
-    padding: 2em;
-    margin: 1em 0;
-    border-radius: 8px
-}
 }
